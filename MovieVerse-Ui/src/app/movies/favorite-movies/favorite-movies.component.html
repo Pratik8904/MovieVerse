@@ -1,0 +1,66 @@
+<div class="fav-message" *ngIf="likedMovies.length == 0">
+  <i class="fa fa-exclamation-circle" id="bang" aria-hidden="true"></i> No
+  movies added to your favorite list. Visit
+  <span id="homepage" [routerLink]="['/movies']">
+    <i class="fa fa-home"></i>Homepage </span
+  >or Search Movies
+</div>
+
+<div class="movies-container" *ngIf="likedMovies.length > 0">
+  <div class="movies movies-search">
+    <div class="movies-type">
+      Your favorite movies
+      <span class="clear-fav" (click)="clearLikedMovies()">
+        <button>Remove all movies</button>
+      </span>
+    </div>
+
+    <div class="movies-class trending">
+      <div class="movie" *ngFor="let movie of likedMovies; let i = index">
+        <div class="fav-overlay"></div>
+        <div class="fav-container" #like>
+          <i
+            class="fa fa-heart"
+            id="favorite"
+            [ngClass]="{ liked: likedMovies[i].liked }"
+            (click)="removeFromLiked(likedMovies[i].id)"
+          ></i>
+        </div>
+        <div
+          class="movie-img"
+          [routerLink]="['/movies', likedMoviesId[i], likedMoviesName[i]]"
+        >
+          <div class="movie-rating">
+            <circle-progress
+              backgroundColor="black"
+              [percent]="likedMoviesRating[i]"
+              [radius]="18"
+              [outerStrokeWidth]="3"
+              [innerStrokeWidth]="4"
+              [outerStrokeColor]="
+                movieRatingColor | rating: likedMoviesRating[i]
+              "
+              [innerStrokeColor]="'#C7E596'"
+              [animation]="true"
+              [animationDuration]="0"
+              titleFontSize="13"
+              titleFontWeight="900"
+              unitsFontWeight="500"
+              [backgroundPadding]="2"
+            ></circle-progress>
+          </div>
+          <img [img-preloader]="likedMoviesPoster[i]" alt="" />
+        </div>
+        <div class="movie-info">
+          <div class="movie-title-date">
+            <div class="movie-name">
+              {{ movie.original_title }}
+            </div>
+
+            <div class="movie-date">{{ movie.release_date | date }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

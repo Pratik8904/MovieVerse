@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="header" #width>
+    <app-header></app-header>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
+<div class="progress" *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="search-container">
+  <app-search-result
+    *ngIf="searchKeyword && !searchResultClicked"
+  ></app-search-result>
+</div>
+
+<div class="recent-search-root">
+  <app-recent-searches
+    *ngIf="searching && !searchKeyword"
+  ></app-recent-searches>
+</div>
+
+<!-- <button class="btn btn-outline-dark ms-2" (click)="logout()">LogOut</button> -->

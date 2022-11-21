@@ -1,0 +1,25 @@
+<section class="header-container">
+  <div class="header">
+    <div
+      class="logo"
+      [routerLink]="['/movies']"
+      routerLinkActive="router-link-active"
+      (click)="closeRecents()"
+    >
+      MovieVerse
+    </div>
+    
+    <div class="search">
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <input
+          type="text"
+          placeholder="Search movies"
+          [formControlName]="'searchResult'"
+          (click)="check()"
+          (keyup)="getKeyword()"
+        />
+        <button type="submit"><mat-icon>search</mat-icon></button>
+      </form>
+    </div>
+  </div>
+</section>

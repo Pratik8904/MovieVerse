@@ -1,0 +1,94 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+	
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form>
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" name="txt" placeholder="User name" required="">
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Login</button>
+				</form>
+			</div>
+	</div>
+</body>
+</html>
+
+
+
+ -->
+ <div class="alert alert-danger" role="alert" *ngIf="flag"> 
+ <div class="text-center">Incorrect Username or Password</div>
+</div>
+<section class="vh-100  main ">
+    <!-- <div class="alert-danger" role="alert" *ngIf="flag"> 
+        <div class="text-center">Incorrect Username or Password</div>
+    </div> -->
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card loginCard text-white" style="border-radius: 1rem;">
+                    <div class="card-body  p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                          <b> <h1 class="fw-bold mb-2 text-uppercase">Welcome To MovieVerse</h1> </b> &nbsp;
+                            
+                          <h2 class="text-white-50 mb-5">Please Enter User-Name and Password</h2>
+
+                            
+                            <form [formGroup]="loginGroup"  >
+                           &nbsp; <div class="form-outline form-white mb-4">
+                                <input type="text" formControlName="userName"  class="user form-control form-control-lg" placeholder="Enter Username"/>
+                             &nbsp;  <b><label class="form-label" >User-Name</label></b>
+                            </div>
+
+                          &nbsp;  <div class="form-outline form-white mb-4">
+                                <input type="password" formControlName="password" class="pass form-control form-control-lg" placeholder="Enter Your Password" />
+                           &nbsp;    <b><label class="form-label" >Password</label></b>
+                            </div>
+
+                           &nbsp; </form>    
+                          <b> <button class="btn btn-outline-light btn-lg px-5" (click)="onSubmit()">Login</button> </b>
+
+
+
+                        </div>
+
+                       &nbsp; <div>
+                            <!-- <p class="mb-0">Don't have an account? <a routerLink="/register" class="text-white-50 fw-bold">Sign
+                                    Up</a>
+                            </p> -->
+
+						<b><button class="to-homepage" [routerLink]="['/signup']">Sign up</button> </b>
+
+                                    
+                            
+							
+							
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

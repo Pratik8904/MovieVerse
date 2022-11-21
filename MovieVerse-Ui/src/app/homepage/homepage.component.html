@@ -1,0 +1,49 @@
+<div class="homepage" (click)="closeRecents()">
+  <div class="sort">
+    <mat-form-field>
+      <mat-label>Sort</mat-label>
+      <mat-select [(ngModel)]="sort" (selectionChange)="onSort(sort)">
+        <mat-option value="all">All movies</mat-option>
+        <mat-option value="trending" *ngIf="!searchState">Trending</mat-option>
+        <mat-option value="popular" *ngIf="!searchState">Popular</mat-option>
+        <mat-option value="top-rated" *ngIf="!searchState"
+          >Top rated</mat-option
+        >
+        <mat-option value="action">Genre - action</mat-option>
+        <mat-option value="drama">Genre - drama</mat-option>
+        <mat-option value="crime">Genre - crime</mat-option>
+        <mat-option value="adventure">Genre - adventure</mat-option>
+        <mat-option value="horror">Genre - horror</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="favorites">
+      <button [routerLink]="['/movies', 'favorites']">Favorite Movies</button>
+      <div class="fav-count" *ngIf="likedMoviesCount > 0">
+        {{ likedMoviesCount }}
+      </div>
+    </div>
+
+    <!-- <div class="login">
+      <button [routerLink]="['/login']" routerLinkActive="active-link">Log In / Sign Up</button>   
+    </div> -->
+
+    <div class="login">   
+      <button class="btn btn-outline-dark ms-2" (click)="logout()">LogOut</button>
+    </div>
+
+  </div>
+
+  <div class="movies">
+    <div class="movies-container">
+      <app-movies></app-movies>
+    </div>
+  </div>
+
+  <div class="attribution">
+    <div class="text">Powered by</div>
+    <a href="https://www.themoviedb.org/" target="_blank"
+      ><img src="assets/logo attribution.svg" alt=""
+    /></a>
+  </div>
+</div>

@@ -1,0 +1,175 @@
+@import "config";
+
+.homepage {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  margin-inline: auto;
+  z-index: 1;
+  padding-bottom: 40px;
+}
+
+.sort {
+  @include flex;
+
+  & .favorites {
+    position: relative;
+
+    & button {
+      border: none;
+      background: $main-color;
+      padding: 10px 15px;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      @include transition;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: $main-color-hover;
+      }
+    }
+
+    
+  
+
+    & .fav-count {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 17px;
+      font-weight: 600;
+      background: white;
+      color: black;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+
+  & .login {
+    position: relative;
+
+    & button {
+      border: none;
+      background: $main-color;
+      padding: 10px 15px;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      @include transition;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: $main-color-hover;
+      }
+    }
+  }
+}
+
+.attribution {
+  margin-top: 30px;
+  width: 150px;
+  margin-inline: auto;
+
+  & .text {
+    font-size: 15px;
+  }
+
+  & img {
+    width: 100%;
+  }
+}
+
+mat-form-field {
+  width: 50%;
+}
+
+mat-label {
+  font-size: 18px;
+}
+
+.mat-option.mat-focus-indicator {
+  &:hover {
+    background: red;
+  }
+}
+
+.mat-option-text {
+  font-size: 17px;
+}
+
+.mat-form-field-infix.ng-tns-c70-0 {
+  padding: 10px 0;
+  padding-right: 15px;
+}
+
+.mat-form-field-infix {
+  background-color: white;
+  border-color: red !important;
+  border-top: none;
+  border-bottom: 3px solid $main-color;
+  padding-left: 5px !important;
+}
+
+.mat-select-value,
+.mat-select-arrow,
+.mat-form-field-hide-placeholder .mat-select-placeholder,
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: black !important;
+  opacity: 1;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  padding-left: 10px;
+}
+
+.mat-form-field-appearance-legacy .mat-select-value {
+  font-size: 18px;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: red !important;
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .homepage {
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  .sort {
+    width: 95%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    & button {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .attribution {
+    margin-top: 30px;
+    width: 100px;
+    margin-inline: auto;
+
+    & .text {
+      font-size: 12px;
+      margin-bottom: -8px;
+    }
+  }
+}

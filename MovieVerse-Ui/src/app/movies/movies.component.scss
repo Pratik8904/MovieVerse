@@ -1,0 +1,123 @@
+@import "config";
+
+::-webkit-scrollbar {
+  position: relative;
+  height: 8px;
+  cursor: pointer;
+  z-index: 12;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px grey;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(85, 85, 85);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+.error-container {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  background: red;
+  padding: 10px 15px;
+}
+
+.movies-container {
+  position: relative;
+  width: 100%;
+
+  &.blur {
+    filter: blur(5px);
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 70px;
+    height: 100%;
+    background: black;
+    filter: blur(50px);
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+}
+
+.movies {
+  margin-bottom: 50px;
+
+  &.top-rated {
+    margin-bottom: 0px;
+  }
+  &.top-rated-test {
+    margin-top: 50px;
+  }
+}
+
+.movies-type {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  position: relative;
+
+  & .searchName {
+    text-transform: uppercase;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 3px;
+    background: $main-color;
+    bottom: -5px;
+    left: 0;
+    border-radius: 20px;
+  }
+
+  &.popular {
+    &::after {
+      bottom: -8px;
+    }
+  }
+}
+
+.movies-class {
+  display: flex;
+  padding-bottom: 5px;
+  overflow: auto;
+}
+
+.movies-search {
+  position: relative;
+
+  & .movie-rating {
+    left: 0;
+  }
+}
+
+.second {
+  margin-left: 20px;
+}
+
+@media (max-width: 500px) {
+  .movies-container {
+    &::after {
+      width: 20px;
+      filter: blur(30px);
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<div class="error-container" *ngIf="error">An error occured!</div>
+<div class="movies-container" [ngClass]="{ blur: isFetching }" *ngIf="!error">
+  <div
+    class="movies movies-search"
+    *ngIf="
+      (searchState && sortValue == 'all') ||
+      (searchState && sortValue == 'horror') ||
+      (searchState && sortValue == 'action') ||
+      (searchState && sortValue == 'drama') ||
+      (searchState && sortValue == 'adventure') ||
+      (searchState && sortValue == 'crime')
+    "
+  >
+    <div class="movies-type">
+      Search results and similar movies for
+      <span class="searchName">'{{ searchName }}'</span>
+    </div>
+
+    <div class="movies-class trending">
+      <app-movie-type [movieType]="'searchedMovies'"></app-movie-type>
+    </div>
+  </div>
+
+  <div
+    class="sort-container"
+    *ngIf="
+      sortValue == 'all' ||
+      sortValue == 'trending' ||
+      sortValue == 'action' ||
+      sortValue == 'drama' ||
+      sortValue == 'adventure' ||
+      sortValue == 'crime' ||
+      sortValue == 'horror'
+    "
+  >
+    <div class="movies" *ngIf="!searchState">
+      <div class="movies-type">Trending</div>
+
+      <div class="movies-class trending">
+        <app-movie-type [movieType]="'trending'"></app-movie-type>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="sort-container"
+    *ngIf="
+      sortValue == 'all' ||
+      sortValue == 'popular' ||
+      sortValue == 'action' ||
+      sortValue == 'drama' ||
+      sortValue == 'adventure' ||
+      sortValue == 'crime' ||
+      sortValue == 'horror'
+    "
+  >
+    <div class="movies" *ngIf="!searchState">
+      <div class="movies-type popular">Currently Popular</div>
+
+      <div class="movies-class popular">
+        <app-movie-type [movieType]="'popular'"></app-movie-type>
+        <app-movie-type
+          [movieType]="'popular_2'"
+          class="second"
+        ></app-movie-type>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="sort-container"
+    *ngIf="
+      sortValue == 'all' ||
+      sortValue == 'top-rated' ||
+      sortValue == 'action' ||
+      sortValue == 'drama' ||
+      sortValue == 'adventure' ||
+      sortValue == 'crime' ||
+      sortValue == 'horror'
+    "
+  >
+    <div class="movies top-rated top-rated-test" *ngIf="!searchState">
+      <div class="movies-type">Top Rated</div>
+
+      <div class="movies-class top-rated">
+        <app-movie-type [movieType]="'top-rated'"></app-movie-type>
+        <app-movie-type
+          [movieType]="'top-rated_2'"
+          class="second"
+        ></app-movie-type>
+      </div>
+    </div>
+  </div>
+</div>

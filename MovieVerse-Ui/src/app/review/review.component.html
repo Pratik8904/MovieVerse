@@ -1,0 +1,202 @@
+<!-- 
+
+<div class="container">
+  <div class="card mt-5" style="align-items: center;">
+    <b><h1>====REVIEW DASHBOARD====</h1></b>
+  </div>
+
+  <div class="card mt-5" style="padding: 20px;">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="form-group">
+        <label for="name">Movie Name :</label>
+        <input type="text" #name (ngModel)="name" name="name" id="name" class="form-control" placeholder="Movie Name.......">
+      </div> <br>
+      <div class="form-group">
+        <label for="review"> Movie Review :</label>
+        <input type="text" #review (ngModel)="review" name="review" id="review" class="form-control"
+          placeholder="Review......">
+      </div> <br>
+      <div class="form-group">
+        <label for="rating">Movie Rating :</label>
+        <input type="number" #rating (ngModel)="rating" name="rating" id="rating" class="form-control"
+          placeholder="Rating......">
+      </div> <br>
+      <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary w-100">
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+        &nbsp; &nbsp; <th>S_NO</th> &nbsp;&nbsp;
+        &nbsp; &nbsp;  <th>MovieName</th> &nbsp; &nbsp;
+        &nbsp; &nbsp;  <th>Review</th> &nbsp; &nbsp;
+        &nbsp; &nbsp;  <th>Rating</th> &nbsp; &nbsp; &nbsp;
+         &nbsp; <th>Edit</th>&nbsp;
+        &nbsp;  <th>Delete</th> 
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let movie of movieDetails">
+       &nbsp;   <td>{{movie.serialNumber}}</td> &nbsp; &nbsp;
+          <td>{{movie.name}}</td>  &nbsp; &nbsp;
+          <td>{{movie.review}}</td> &nbsp; &nbsp;
+          <td>{{movie.rating}}</td> &nbsp; &nbsp; &nbsp;
+          <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            (click)="edit(movie)">Edit</button></td> &nbsp;&nbsp;
+
+          <td> <button type="button" class="btn btn-danger" (click)="deletemovie(movie)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <br>
+        <br>
+        <h1 class="modal-title" id="exampleModalLabel">===== UPDATE REVIEW =====</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #updateForm="ngForm" (ngSubmit)="updatemovie()">
+          <div class="form-group"> <br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label for="serialNumber">S_NO &nbsp; :</label>
+           &nbsp; &nbsp; <input type="text" disabled #serialNumber [(ngModel)]="movieToUpdate.serialNumber" name="serialNumber" id="serialNumber"
+              class="form-control" placeholder="S_NO">
+          </div> <br>
+
+          <div class="form-group">
+            &nbsp;&nbsp;<label for="name">Movie Name :</label>
+          &nbsp; &nbsp;  <input type="text" #name [(ngModel)]="movieToUpdate.name" name="name" id="name" class="form-control"
+              placeholder="Name......">
+          </div> <br>
+          <div class="form-group">
+           &nbsp; <label for="review">Movie Review :</label>
+           &nbsp; <input type="text" #review [(ngModel)]="movieToUpdate.review" name="review" id="review"
+              class="form-control" placeholder="Review......">
+          </div> <br>
+          <div class="form-group">
+           &nbsp; <label for="rating">Movie Rating :</label>
+          &nbsp;  <input type="number" #rating [(ngModel)]="movieToUpdate.rating" name="rating" id="rating"
+              class="form-control" placeholder="Rating......">
+          </div> <br>
+          <div class="form-group">
+          &nbsp; &nbsp;  <input type="submit" value="Update" class="btn btn-primary w-100">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="container">
+  <div class="card mt-5" style="align-items: center;">
+    <b><h1>====REVIEW DASHBOARD====</h1></b>
+  </div>
+
+  <div class="card mt-5" style="padding: 20px;">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="form-group">
+        <label for="name">Movie Name : </label>
+        <input class="moviename form-control form-control-lg" type="text" #name (ngModel)="name" name="name" id="name"  placeholder="Movie Name.......">
+      </div> <br>
+      <div class="form-group">
+        <label for="review"> Movie Review : </label>
+        <input type="text" #review (ngModel)="review" name="review" id="review" class="review form-control"
+          placeholder="Review......">
+      </div> <br>
+      <div class="form-group">
+        <label for="rating">Movie Rating : </label>
+        <input type="number" #rating (ngModel)="rating" name="rating" id="rating" class="rating form-control"
+          placeholder="Rating......">
+      </div> <br>
+      <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-primary w-100">
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+        &nbsp; &nbsp; <th>S_NO</th> &nbsp;&nbsp;
+        &nbsp; &nbsp;  <th>MovieName</th> &nbsp; &nbsp;
+        &nbsp; &nbsp;  <th>Review</th> &nbsp; &nbsp;
+        &nbsp; &nbsp;  <th>Rating</th> &nbsp; &nbsp; &nbsp;
+         &nbsp; <th>Edit</th>&nbsp;
+        &nbsp;  <th>Delete</th> 
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let movie of movieDetails">
+       &nbsp;   <td>{{movie.serialNumber}}</td> &nbsp; &nbsp;
+          <td>{{movie.name}}</td>  &nbsp; &nbsp;
+          <td>{{movie.review}}</td> &nbsp; &nbsp;
+          <td>{{movie.rating}}</td> &nbsp; &nbsp; &nbsp;
+          <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            (click)="edit(movie)">Edit</button></td> &nbsp;&nbsp;
+
+          <td> <button type="button" class="btn btn-danger" (click)="deleteMovie(movie)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <br>
+        <br>
+        <h1 class="modal-title" id="exampleModalLabel">===== UPDATE REVIEW =====</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #updateForm="ngForm" (ngSubmit)="updateMovie()">
+          <div class="form-group"> <br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label for="serialNumber">S_NO &nbsp; :</label>
+           &nbsp; &nbsp; <input type="text" disabled #serialNumber [(ngModel)]="movieToUpdate.serialNumber" name="serialNumber" id="serialNumber"
+              class="form-control" placeholder="S_NO">
+          </div> <br>
+
+          <div class="form-group">
+            &nbsp;&nbsp;<label for="name">Movie Name :</label>
+          &nbsp; &nbsp;  <input type="text" #name [(ngModel)]="movieToUpdate.name" name="name" id="name" class="moviename form-control"
+              placeholder="Name......">
+          </div> <br>
+          <div class="form-group">
+           &nbsp; <label for="review">Movie Review :</label>
+           &nbsp; <input type="text" #review [(ngModel)]="movieToUpdate.review" name="review" id="review"
+              class="review form-control" placeholder="Review......">
+          </div> <br>
+          <div class="form-group">
+           &nbsp; <label for="rating">Movie Rating :</label>
+          &nbsp;  <input type="number" #rating [(ngModel)]="movieToUpdate.rating" name="rating" id="rating"
+              class="moviename form-control" placeholder="Rating......">
+          </div> <br>
+          <div class="form-group">
+          &nbsp; &nbsp;  <input type="submit" value="Update" class="btn btn-primary w-100">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
